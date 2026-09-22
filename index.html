@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieSpace - Website Film</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b14;
+            color: white;
+            line-height: 1.6;
+        }
+
+
+        /* ========================= */
+        /* NAVBAR */
+        /* ========================= */
+
+        nav {
+            width: 100%;
+            background: #101522;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #ffca28;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffca28;
+        }
+
+
+        /* ========================= */
+        /* HERO */
+        /* ========================= */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 80px 7%;
+
+            background:
+                linear-gradient(
+                    rgba(8,11,20,0.75),
+                    rgba(8,11,20,0.95)
+                ),
+                url("img/minecraft.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffca28;
+        }
+
+        .hero p {
+            color: #ddd;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #ffca28;
+            color: #111;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #ffd95a;
+            transform: translateY(-3px);
+        }
+
+
+        /* ========================= */
+        /* SECTION */
+        /* ========================= */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 span {
+            color: #ffca28;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+
+        /* ========================= */
+        /* FILM */
+        /* ========================= */
+
+        .film-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(210px, 1fr));
+
+            gap: 25px;
+
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .film-card {
+            background: #101522;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            border: 1px solid #222a3b;
+
+            transition: 0.3s;
+        }
+
+        .film-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #ffca28;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,202,40,0.15);
+        }
+
+        .film-card img {
+            width: 100%;
+            height: 300px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .film-info {
+            padding: 20px;
+        }
+
+        .film-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .film-info p {
+            color: #aaa;
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .film-btn {
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            background: #ffca28;
+            color: #111;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .film-btn:hover {
+            background: #ffd95a;
+        }
+
+
+        /* ========================= */
+        /* PAKET BERLANGGANAN */
+        /* ========================= */
+
+        #paket {
+            background: #0b0f19;
+        }
+
+        .paket-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+        .paket-card {
+            position: relative;
+
+            background: #101522;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #222a3b;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .paket-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #ffca28;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,202,40,0.15);
+        }
+
+        .paket-card h3 {
+            font-size: 27px;
+
+            margin-bottom: 15px;
+        }
+
+        .harga {
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: #ffca28;
+
+            margin-bottom: 25px;
+        }
+
+        .harga span {
+            font-size: 14px;
+
+            color: #aaa;
+
+            font-weight: normal;
+        }
+
+
+        /* ========================= */
+        /* ORDERED LIST */
+        /* ========================= */
+
+        .paket-card ol {
+            text-align: left;
+
+            padding-left: 25px;
+
+            margin-bottom: 25px;
+
+            color: #ddd;
+
+            line-height: 2;
+        }
+
+        .paket-card ol li {
+            padding-left: 5px;
+        }
+
+
+        /* ========================= */
+        /* BUTTON PAKET */
+        /* ========================= */
+
+        .paket-btn {
+            display: inline-block;
+
+            width: 100%;
+
+            padding: 12px;
+
+            background: #ffca28;
+
+            color: #111;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .paket-btn:hover {
+            background: #ffd95a;
+        }
+
+
+        /* ========================= */
+        /* PREMIUM */
+        /* ========================= */
+
+        .paket-card.premium {
+            border: 2px solid #ffca28;
+
+            transform: scale(1.03);
+        }
+
+        .paket-card.premium:hover {
+            transform:
+                scale(1.03)
+                translateY(-8px);
+        }
+
+        .label {
+            position: absolute;
+
+            top: -14px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background: #ffca28;
+
+            color: #111;
+
+            padding: 6px 18px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        /* ========================= */
+        /* ABOUT */
+        /* ========================= */
+
+        .about-container {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+
+            border-radius: 15px;
+
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+        .about-text h2 span {
+            color: #ffca28;
+        }
+
+        .about-text p {
+            color: #bbb;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* ========================= */
+        /* GALERI */
+        /* ========================= */
+
+        .gallery-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+        .gallery-container img {
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.04);
+        }
+
+
+        /* ========================= */
+        /* KONTAK */
+        /* ========================= */
+
+        .contact-container {
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+        .contact-form {
+            background: #101522;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #222a3b;
+        }
+
+        .contact-form label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #ddd;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 7px;
+
+            background: #080b14;
+
+            color: white;
+        }
+
+        .contact-form textarea {
+            height: 130px;
+
+            resize: vertical;
+        }
+
+        .contact-form button {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #ffca28;
+
+            color: #111;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #ffd95a;
+        }
+
+
+        /* ========================= */
+        /* FOOTER */
+        /* ========================= */
+
+        footer {
+            background: #101522;
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #aaa;
+
+            margin-top: 20px;
+        }
+
+        footer span {
+            color: #ffca28;
+        }
+
+
+        /* ========================= */
+        /* RESPONSIVE */
+        /* ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .paket-container {
+                grid-template-columns: 1fr;
+
+                max-width: 500px;
+            }
+
+            .paket-card.premium {
+                transform: none;
+            }
+
+            .paket-card.premium:hover {
+                transform: translateY(-8px);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Movie<span>Space</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#film">Film</a>
+            </li>
+
+            <li>
+                <a href="#paket">Paket</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#galeri">Galeri</a>
+            </li>
+
+            <li>
+                <a href="#kontak">Kontak</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ========================= -->
+    <!-- HERO -->
+    <!-- ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Selamat Datang di
+                <span>MovieSpace</span>
+            </h1>
+
+            <p>
+                Temukan berbagai film favorit kamu
+                dan nikmati pengalaman menonton
+                yang lebih menyenangkan.
+            </p>
+
+            <a href="#film" class="hero-btn">
+                🎬 Lihat Film
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- FILM -->
+    <!-- ========================= -->
+
+    <section id="film">
+
+        <div class="section-title">
+
+            <h2>
+                Film <span>Populer</span>
+            </h2>
+
+            <p>
+                Pilihan film populer yang tersedia
+                di MovieSpace
+            </p>
+
+        </div>
+
+
+        <div class="film-container">
+
+
+            <!-- AVENGERS -->
+
+            <div class="film-card">
+
+                <img
+                    src="img/avengers.jpg"
+                    alt="Avengers"
+                >
+
+                <div class="film-info">
+
+                    <h3>
+                        Avengers: Endgame
+                    </h3>
+
+                    <p>
+                        Film superhero penuh aksi
+                        dan petualangan.
+                    </p>
+
+                    <a
+                        href="film.html?film=avengers"
+                        class="film-btn"
+                    >
+                        🎬 Lihat Film
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TITANIC -->
+
+            <div class="film-card">
+
+                <img
+                    src="img/titanic.jpg"
+                    alt="Titanic"
+                >
+
+                <div class="film-info">
+
+                    <h3>
+                        Titanic
+                    </h3>
+
+                    <p>
+                        Kisah cinta romantis
+                        di atas kapal Titanic.
+                    </p>
+
+                    <a
+                        href="film.html?film=titanic"
+                        class="film-btn"
+                    >
+                        🎬 Lihat Film
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HARRY POTTER -->
+
+            <div class="film-card">
+
+                <img
+                    src="img/harry-potter.jpg"
+                    alt="Harry Potter"
+                >
+
+                <div class="film-info">
+
+                    <h3>
+                        Harry Potter
+                    </h3>
+
+                    <p>
+                        Petualangan seorang penyihir
+                        muda di dunia sihir.
+                    </p>
+
+                    <a
+                        href="film.html?film=harry-potter"
+                        class="film-btn"
+                    >
+                        🎬 Lihat Film
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LION KING -->
+
+            <div class="film-card">
+
+                <img
+                    src="img/lion-king.jpg"
+                    alt="The Lion King"
+                >
+
+                <div class="film-info">
+
+                    <h3>
+                        The Lion King
+                    </h3>
+
+                    <p>
+                        Perjalanan Simba menjadi
+                        seorang pemimpin.
+                    </p>
+
+                    <a
+                        href="film.html?film=lion-king"
+                        class="film-btn"
+                    >
+                        🎬 Lihat Film
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SPIDER MAN -->
+
+            <div class="film-card">
+
+                <img
+                    src="img/spiderman.jpg"
+                    alt="Spider-Man"
+                >
+
+                <div class="film-info">
+
+                    <h3>
+                        Spider-Man
+                    </h3>
+
+                    <p>
+                        Kisah pahlawan dengan
+                        kekuatan super.
+                    </p>
+
+                    <a
+                        href="film.html?film=spiderman"
+                        class="film-btn"
+                    >
+                        🎬 Lihat Film
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- PAKET BERLANGGANAN -->
+
+
+    <section id="paket">
+
+        <div class="section-title">
+
+            <h2>
+                Paket <span>Berlangganan</span>
+            </h2>
+
+            <p>
+                Pilih paket yang sesuai dengan
+                kebutuhan kamu
+            </p>
+
+        </div>
+
+
+        <div class="paket-container">
+
+            <!-- BASIC -->
+
+            <div class="paket-card">
+
+                <h3>
+                    Basic
+                </h3>
+
+                <div class="harga">
+
+                    Rp25.000
+
+                    <span>
+                        /bulan
+                    </span>
+
+                </div>
+
+
+                <!-- ORDERED LIST -->
+
+                <ol>
+
+                    <li>
+                        Akses film pilihan
+                    </li>
+
+                    <li>
+                        Kualitas video hingga 720p
+                    </li>
+
+                    <li>
+                        Dapat menonton melalui browser
+                    </li>
+
+                    <li>
+                        Akses katalog film standar
+                    </li>
+
+                </ol>
+
+
+                <a
+                    href="#kontak"
+                    class="paket-btn"
+                >
+                    Berlangganan
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= -->
+            <!-- PREMIUM -->
+            <!-- ================= -->
+
+            <div class="paket-card premium">
+
+                <div class="label">
+                    PALING POPULER
+                </div>
+
+
+                <h3>
+                    Premium
+                </h3>
+
+
+                <div class="harga">
+
+                    Rp50.000
+
+                    <span>
+                        /bulan
+                    </span>
+
+                </div>
+
+
+                <!-- ORDERED LIST -->
+
+                <ol>
+
+                    <li>
+                        Akses seluruh film
+                    </li>
+
+                    <li>
+                        Kualitas video hingga 1080p
+                    </li>
+
+                    <li>
+                        Menonton tanpa batas
+                    </li>
+
+                    <li>
+                        Akses film terbaru
+                    </li>
+
+                    <li>
+                        Tanpa iklan
+                    </li>
+
+                </ol>
+
+
+                <a
+                    href="#kontak"
+                    class="paket-btn"
+                >
+                    Berlangganan
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= -->
+            <!-- VIP -->
+            <!-- ================= -->
+
+            <div class="paket-card">
+
+                <h3>
+                    VIP
+                </h3>
+
+
+                <div class="harga">
+
+                    Rp75.000
+
+                    <span>
+                        /bulan
+                    </span>
+
+                </div>
+
+
+                <!-- ORDERED LIST -->
+
+                <ol>
+
+                    <li>
+                        Akses seluruh film dan katalog VIP
+                    </li>
+
+                    <li>
+                        Kualitas video hingga 4K
+                    </li>
+
+                    <li>
+                        Menonton tanpa batas
+                    </li>
+
+                    <li>
+                        Tanpa iklan
+                    </li>
+
+                    <li>
+                        Akses film lebih awal
+                    </li>
+
+                    <li>
+                        Dukungan pelanggan prioritas
+                    </li>
+
+                </ol>
+
+
+                <a
+                    href="#kontak"
+                    class="paket-btn"
+                >
+                    Berlangganan
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- ABOUT -->
+    <!-- ========================= -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <h2>
+                Tentang <span>MovieSpace</span>
+            </h2>
+
+            <p>
+                Mengenal lebih dekat website MovieSpace
+            </p>
+
+        </div>
+
+
+        <div class="about-container">
+
+
+            <div class="about-image">
+
+                <img
+                    src="img/minecraft.jpg"
+                    alt="MovieSpace"
+                >
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>
+                    Apa itu
+                    <span>MovieSpace?</span>
+                </h2>
+
+                <p>
+                    MovieSpace merupakan website
+                    sederhana yang dibuat untuk
+                    menyediakan informasi dan
+                    koleksi film bagi para pecinta
+                    film.
+                </p>
+
+                <p>
+                    Pengguna dapat melihat daftar
+                    film populer, memilih film yang
+                    ingin ditonton, serta melihat
+                    informasi mengenai film tersebut.
+                </p>
+
+                <p>
+                    MovieSpace juga menyediakan
+                    beberapa pilihan paket
+                    berlangganan dengan fasilitas
+                    yang berbeda.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- GALERI -->
+    <!-- ========================= -->
+
+    <section id="galeri">
+
+        <div class="section-title">
+
+            <h2>
+                Galeri <span>Film</span>
+            </h2>
+
+            <p>
+                Beberapa koleksi film MovieSpace
+            </p>
+
+        </div>
+
+
+        <div class="gallery-container">
+
+            <img
+                src="img/avengers.jpg"
+                alt="Avengers"
+            >
+
+            <img
+                src="img/titanic.jpg"
+                alt="Titanic"
+            >
+
+            <img
+                src="img/harry-potter.jpg"
+                alt="Harry Potter"
+            >
+
+            <img
+                src="img/lion-king.jpg"
+                alt="The Lion King"
+            >
+
+            <img
+                src="img/spiderman.jpg"
+                alt="Spider-Man"
+            >
+
+            <img
+                src="img/minecraft.jpg"
+                alt="Minecraft"
+            >
+
+            <img
+                src="img/waktu-magrib.webp"
+                alt="waktu-magrib"
+            >
+
+            <img
+                src="img/Saya.jpeg"
+                alt="Saya"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- KONTAK -->
+    <!-- ========================= -->
+
+    <section id="kontak">
+
+        <div class="section-title">
+
+            <h2>
+                Hubungi <span>Kami</span>
+            </h2>
+
+            <p>
+                Kirim pesan kepada MovieSpace
+            </p>
+
+        </div>
+
+
+        <div class="contact-container">
+
+            <form
+                class="contact-form"
+                onsubmit="kirimPesan(event)"
+            >
+
+                <label for="nama">
+                    Nama
+                </label>
+
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama kamu"
+                    required
+                >
+
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Masukkan email kamu"
+                    required
+                >
+
+
+                <label for="pesan">
+                    Pesan
+                </label>
+
+                <textarea
+                    id="pesan"
+                    placeholder="Tulis pesan kamu..."
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Kirim Pesan
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+
+            <span>
+                MovieSpace
+            </span>
+
+            | Website Film Anisa Fitriani
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script>
+
+        function kirimPesan(event) {
+
+            event.preventDefault();
+
+            const nama =
+                document.getElementById("nama").value;
+
+            alert(
+                "Terima kasih " +
+                nama +
+                "! Pesan kamu berhasil dikirim."
+            );
+
+            document
+                .querySelector(".contact-form")
+                .reset();
+
+        }
+
+    </script>
+
+
+</body>
+</html>

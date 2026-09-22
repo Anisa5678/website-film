@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MovieSpace - Daftar Film</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background: #080b14;
+
+            color: white;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: #101522;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.4);
+        }
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: #ffca28;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+
+            list-style: none;
+
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #ffca28;
+        }
+
+
+        /* =========================
+           JUDUL
+        ========================= */
+
+        .judul {
+            text-align: center;
+
+            padding: 65px 20px 40px;
+        }
+
+        .judul h1 {
+            font-size: 42px;
+
+            margin-bottom: 12px;
+        }
+
+        .judul h1 span {
+            color: #ffca28;
+        }
+
+        .judul p {
+            color: #999;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           FILM CONTAINER
+        ========================= */
+
+        .film-container {
+            width: 84%;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+
+            padding-bottom: 80px;
+        }
+
+        .film-card {
+            background: #141a29;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border: 1px solid #252d40;
+
+            transition: 0.3s;
+        }
+
+        .film-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 12px 25px rgba(0,0,0,0.5);
+        }
+
+        .film-card.selected {
+            border:
+                2px solid #ffca28;
+
+            box-shadow:
+                0 0 25px rgba(255,202,40,0.18);
+        }
+
+        .film-card img {
+            width: 100%;
+
+            height: 320px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .film-info {
+            padding: 18px;
+        }
+
+        .film-info h2 {
+            font-size: 21px;
+
+            margin-bottom: 8px;
+        }
+
+        .genre {
+            color: #ffca28;
+
+            font-size: 12px;
+
+            display: block;
+
+            margin-bottom: 12px;
+        }
+
+        .film-info p {
+            color: #aaa;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .watch-button {
+            display: inline-block;
+
+            margin-top: 16px;
+
+            padding: 10px 18px;
+
+            background: #ffca28;
+
+            color: #111;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .watch-button:hover {
+            background: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           FILM YANG DIPILIH
+        ========================= */
+
+        .selected-info {
+            width: 84%;
+
+            margin:
+                0 auto 60px;
+
+            padding: 30px;
+
+            background: #101522;
+
+            border:
+                1px solid #293246;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .selected-info h2 {
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        .selected-info h2 span {
+            color: #ffca28;
+        }
+
+        .selected-info p {
+            color: #aaa;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #080b14;
+
+            border-top:
+                1px solid #202638;
+
+            padding: 30px 8%;
+
+            text-align: center;
+
+            color: #888;
+        }
+
+        footer strong {
+            color: #ffca28;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .nav-menu {
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .judul h1 {
+                font-size: 32px;
+            }
+
+            .film-container {
+                width: 90%;
+            }
+
+            .selected-info {
+                width: 90%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Movie<span>Space</span>
+        </div>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="film.html">
+                    Daftar Film
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#galeri">
+                    Galeri
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#kontak">
+                    Kontak
+                </a>
+            </li>
+
+        </ul>
+
+    </header>
+
+
+    <!-- =========================
+         JUDUL
+    ========================= -->
+
+    <section class="judul">
+
+        <h1>
+            Pilihan <span>Film</span>
+        </h1>
+
+        <p>
+            Pilih film yang ingin kamu tonton
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         FILM TERPILIH
+    ========================= -->
+
+    <div class="selected-info">
+
+        <h2>
+            Film yang kamu pilih:
+            <span id="selectedFilm">
+                Semua Film
+            </span>
+        </h2>
+
+        <p>
+            Klik tombol ▶ Tonton pada film yang ingin kamu putar.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         DAFTAR FILM
+    ========================= -->
+
+    <section class="film-container">
+
+
+        <!-- AVENGERS -->
+
+        <div class="film-card"
+             id="card-avengers">
+
+            <img src="img/avengers.jpg"
+                 alt="Avengers">
+
+            <div class="film-info">
+
+                <h2>
+                    Avengers
+                </h2>
+
+                <span class="genre">
+                    Avengers: Endgame
+                </span>
+
+                <p>
+                    Film superhero yang menceritakan
+                    perjuangan para Avengers dalam
+                    menghadapi ancaman besar.
+                </p>
+
+                <a href="video.html?film=avengers"
+                   class="watch-button">
+                    ▶ Tonton
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TITANIC -->
+
+        <div class="film-card"
+             id="card-titanic">
+
+            <img src="img/titanic.jpg"
+                 alt="Titanic">
+
+            <div class="film-info">
+
+                <h2>
+                    Titanic
+                </h2>
+
+                <span class="genre">
+                    Drama • Romance
+                </span>
+
+                <p>
+                    Film drama romantis yang menceritakan
+                    kisah cinta dua orang dari latar belakang
+                    berbeda dalam perjalanan kapal Titanic.
+                </p>
+
+                <a href="video.html?film=titanic"
+                   class="watch-button">
+                    ▶ Tonton
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- HARRY POTTER -->
+
+        <div class="film-card"
+             id="card-harry-potter">
+
+            <img src="img/harry-potter.jpg"
+                 alt="Harry Potter">
+
+            <div class="film-info">
+
+                <h2>
+                    Harry Potter
+                </h2>
+
+                <span class="genre">
+                    Adventure • Action
+                </span>
+
+                <p>
+                    Kisah seorang penyihir muda yang
+                    belajar di sekolah sihir dan
+                    mengalami berbagai petualangan.
+                </p>
+
+                <a href="video.html?film=harry-potter"
+                   class="watch-button">
+                    ▶ Tonton
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- LION KING -->
+
+        <div class="film-card"
+             id="card-lion-king">
+
+            <img src="img/lion-king.jpg"
+                 alt="The Lion King">
+
+            <div class="film-info">
+
+                <h2>
+                    The Lion King
+                </h2>
+
+                <span class="genre">
+                    Animation • Family
+                </span>
+
+                <p>
+                    Perjalanan Simba menghadapi berbagai
+                    tantangan hingga menjadi seorang
+                    pemimpin.
+                </p>
+
+                <a href="video.html?film=lion-king"
+                   class="watch-button">
+                    ▶ Tonton
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SPIDER-MAN -->
+
+        <div class="film-card"
+             id="card-spiderman">
+
+            <img src="img/spiderman.jpg"
+                 alt="Spider-Man">
+
+            <div class="film-info">
+
+                <h2>
+                    Spider-Man
+                </h2>
+
+                <span class="genre">
+                    Action • Superhero
+                </span>
+
+                <p>
+                    Seorang pemuda mendapatkan kekuatan
+                    khusus dan menggunakannya untuk
+                    membantu orang lain.
+                </p>
+
+                <a href="video.html?film=spiderman"
+                   class="watch-button">
+                    ▶ Tonton
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <strong>MovieSpace</strong>
+            | Website Film Anisa Fitriani
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        // Mengambil ?film= dari URL
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const film =
+            params.get("film");
+
+
+        // Nama film
+
+        const namaFilm = {
+
+            avengers:
+                "Avengers: Endgame",
+
+            titanic:
+                "Titanic",
+
+            "harry-potter":
+                "Harry Potter",
+
+            "lion-king":
+                "The Lion King",
+
+            spiderman:
+                "Spider-Man"
+
+        };
+
+
+        // Jika ada film yang dipilih
+
+        if (film && namaFilm[film]) {
+
+            // Tampilkan nama film
+
+            document.getElementById(
+                "selectedFilm"
+            ).textContent =
+                namaFilm[film];
+
+
+            // Cari card film
+
+            const card =
+                document.getElementById(
+                    "card-" + film
+                );
+
+
+            // Tandai film yang dipilih
+
+            if (card) {
+
+                card.classList.add(
+                    "selected"
+                );
+
+
+                // Scroll ke film yang dipilih
+
+                setTimeout(function() {
+
+                    card.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 300);
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

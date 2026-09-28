@@ -25,7 +25,6 @@
             line-height: 1.6;
         }
 
-
         /* ========================= */
         /* NAVBAR */
         /* ========================= */
@@ -58,7 +57,6 @@
 
         nav ul {
             list-style: none;
-
             display: flex;
             gap: 25px;
         }
@@ -67,14 +65,12 @@
             color: white;
             text-decoration: none;
             font-size: 15px;
-
             transition: 0.3s;
         }
 
         nav ul li a:hover {
             color: #ffca28;
         }
-
 
         /* ========================= */
         /* HERO */
@@ -142,7 +138,6 @@
             transform: translateY(-3px);
         }
 
-
         /* ========================= */
         /* SECTION */
         /* ========================= */
@@ -168,7 +163,6 @@
         .section-title p {
             color: #aaa;
         }
-
 
         /* ========================= */
         /* FILM */
@@ -254,6 +248,124 @@
             background: #ffd95a;
         }
 
+        /* ========================= */
+        /* REKOMENDASI FILM */
+        /* ========================= */
+
+        #rekomendasi {
+            background: #080b14;
+        }
+
+        .pilih-film {
+            max-width: 1100px;
+            margin: 0 auto 25px;
+            text-align: center;
+        }
+
+        .pilih-film label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ddd;
+            font-weight: bold;
+        }
+
+        .pilih-film select {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 15px;
+
+            border: 1px solid #222a3b;
+            border-radius: 8px;
+
+            background: #101522;
+            color: white;
+
+            outline: none;
+        }
+
+        .table-wrapper {
+            max-width: 1100px;
+            margin: auto;
+            overflow-x: auto;
+            border-radius: 12px;
+        }
+
+        .film-table {
+            width: 100%;
+            border-collapse: collapse;
+
+            background: #101522;
+
+            border: 2px solid #222a3b;
+        }
+
+        .film-table caption {
+            caption-side: top;
+
+            padding: 15px;
+
+            color: #ffca28;
+
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .film-table th {
+            background: #ffca28;
+            color: #111;
+
+            padding: 13px;
+
+            border: 1px solid #222a3b;
+
+            text-align: center;
+        }
+
+        .film-table td {
+            padding: 12px;
+
+            border: 1px solid #222a3b;
+
+            text-align: center;
+
+            color: #ddd;
+
+            vertical-align: middle;
+        }
+
+        .film-table tr:nth-child(even) {
+            background: #0d121e;
+        }
+
+        .film-table tr:hover {
+            background: #171e2d;
+        }
+
+        .film-table img {
+            width: 70px;
+            height: 95px;
+
+            object-fit: cover;
+
+            border-radius: 6px;
+        }
+
+        .rating {
+            color: #ffca28;
+            font-weight: bold;
+        }
+
+        .table-note {
+            max-width: 1100px;
+
+            margin: 18px auto 0;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            text-align: center;
+        }
 
         /* ========================= */
         /* PAKET BERLANGGANAN */
@@ -304,7 +416,6 @@
 
         .paket-card h3 {
             font-size: 27px;
-
             margin-bottom: 15px;
         }
 
@@ -320,16 +431,9 @@
 
         .harga span {
             font-size: 14px;
-
             color: #aaa;
-
             font-weight: normal;
         }
-
-
-        /* ========================= */
-        /* ORDERED LIST */
-        /* ========================= */
 
         .paket-card ol {
             text-align: left;
@@ -346,11 +450,6 @@
         .paket-card ol li {
             padding-left: 5px;
         }
-
-
-        /* ========================= */
-        /* BUTTON PAKET */
-        /* ========================= */
 
         .paket-btn {
             display: inline-block;
@@ -375,11 +474,6 @@
         .paket-btn:hover {
             background: #ffd95a;
         }
-
-
-        /* ========================= */
-        /* PREMIUM */
-        /* ========================= */
 
         .paket-card.premium {
             border: 2px solid #ffca28;
@@ -415,7 +509,6 @@
 
             font-weight: bold;
         }
-
 
         /* ========================= */
         /* ABOUT */
@@ -460,7 +553,6 @@
             margin-bottom: 15px;
         }
 
-
         /* ========================= */
         /* GALERI */
         /* ========================= */
@@ -493,7 +585,6 @@
         .gallery-container img:hover {
             transform: scale(1.04);
         }
-
 
         /* ========================= */
         /* KONTAK */
@@ -574,7 +665,6 @@
             background: #ffd95a;
         }
 
-
         /* ========================= */
         /* FOOTER */
         /* ========================= */
@@ -595,7 +685,6 @@
             color: #ffca28;
         }
 
-
         /* ========================= */
         /* RESPONSIVE */
         /* ========================= */
@@ -604,13 +693,11 @@
 
             nav {
                 flex-direction: column;
-
                 gap: 15px;
             }
 
             nav ul {
                 flex-wrap: wrap;
-
                 justify-content: center;
             }
 
@@ -620,7 +707,6 @@
 
             .paket-container {
                 grid-template-columns: 1fr;
-
                 max-width: 500px;
             }
 
@@ -636,7 +722,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
 
         @media (max-width: 600px) {
 
@@ -660,15 +745,26 @@
                 font-size: 13px;
             }
 
+            .film-table {
+                font-size: 13px;
+            }
+
+            .film-table th,
+            .film-table td {
+                padding: 8px;
+            }
+
+            .film-table img {
+                width: 55px;
+                height: 75px;
+            }
         }
 
     </style>
 
 </head>
 
-
 <body>
-
 
     <!-- ========================= -->
     <!-- NAVBAR -->
@@ -691,6 +787,10 @@
             </li>
 
             <li>
+                <a href="#rekomendasi">Rekomendasi</a>
+            </li>
+
+            <li>
                 <a href="#paket">Paket</a>
             </li>
 
@@ -709,7 +809,6 @@
         </ul>
 
     </nav>
-
 
 
     <!-- ========================= -->
@@ -740,7 +839,6 @@
     </section>
 
 
-
     <!-- ========================= -->
     <!-- FILM -->
     <!-- ========================= -->
@@ -762,7 +860,6 @@
 
 
         <div class="film-container">
-
 
             <!-- AVENGERS -->
 
@@ -794,7 +891,6 @@
                 </div>
 
             </div>
-
 
 
             <!-- TITANIC -->
@@ -829,7 +925,6 @@
             </div>
 
 
-
             <!-- HARRY POTTER -->
 
             <div class="film-card">
@@ -860,7 +955,6 @@
                 </div>
 
             </div>
-
 
 
             <!-- LION KING -->
@@ -895,7 +989,6 @@
             </div>
 
 
-
             <!-- SPIDER MAN -->
 
             <div class="film-card">
@@ -927,14 +1020,240 @@
 
             </div>
 
-
         </div>
 
     </section>
 
 
-    <!-- PAKET BERLANGGANAN -->
+    <!-- ========================= -->
+    <!-- REKOMENDASI FILM -->
+    <!-- ========================= -->
 
+    <section id="rekomendasi">
+
+        <div class="section-title">
+
+            <h2>
+                Rekomendasi <span>Film</span>
+            </h2>
+
+            <p>
+                Pilih film untuk melihat rekomendasi
+                film yang serupa
+            </p>
+
+        </div>
+
+
+        <!-- PILIH FILM -->
+
+        <div class="pilih-film">
+
+            <label for="filmPilihan">
+                Pilih film yang kamu suka:
+            </label>
+
+            <select
+                id="filmPilihan"
+                onchange="ubahRekomendasi()"
+            >
+
+                <option value="avengers">
+                    Avengers: Endgame
+                </option>
+
+                <option value="titanic">
+                    Titanic
+                </option>
+
+                <option value="harry-potter">
+                    Harry Potter
+                </option>
+
+                <option value="lion-king">
+                    The Lion King
+                </option>
+
+                <option value="spiderman">
+                    Spider-Man
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- TABEL -->
+
+        <div class="table-wrapper">
+
+            <table
+                class="film-table"
+                border="2"
+            >
+
+                <caption>
+                    Daftar Rekomendasi Film
+                </caption>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th colspan="6">
+                            Film yang Serupa
+                        </th>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>No</th>
+
+                        <th>Poster</th>
+
+                        <th>Judul Film</th>
+
+                        <th>Genre</th>
+
+                        <th>Rating</th>
+
+                        <th>Tahun</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tabelRekomendasi">
+
+                    <tr>
+
+                        <td>1</td>
+
+                        <td>
+                            <img
+                                src="img/spiderman.jpg"
+                                alt="Spider-Man"
+                            >
+                        </td>
+
+                        <td>
+                            Spider-Man
+                        </td>
+
+                        <td>
+                            Action, Superhero
+                        </td>
+
+                        <td class="rating">
+                            8.2/10
+                        </td>
+
+                        <td>
+                            2019
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>2</td>
+
+                        <td>
+                            <img
+                                src="img/harry-potter.jpg"
+                                alt="Harry Potter"
+                            >
+                        </td>
+
+                        <td>
+                            Harry Potter
+                        </td>
+
+                        <td>
+                            Fantasy, Adventure
+                        </td>
+
+                        <td class="rating">
+                            7.6/10
+                        </td>
+
+                        <td>
+                            2001
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>3</td>
+
+                        <td>
+                            <img
+                                src="img/lion-king.jpg"
+                                alt="The Lion King"
+                            >
+                        </td>
+
+                        <td>
+                            The Lion King
+                        </td>
+
+                        <td>
+                            Animation, Adventure
+                        </td>
+
+                        <td class="rating">
+                            8.5/10
+                        </td>
+
+                        <td>
+                            2019
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+
+                <tfoot>
+
+                    <tr>
+
+                        <td colspan="6">
+
+                            Rekomendasi dapat berubah
+                            sesuai film yang dipilih.
+
+                        </td>
+
+                    </tr>
+
+                </tfoot>
+
+            </table>
+
+        </div>
+
+
+        <p class="table-note">
+
+            Tabel menggunakan caption, thead, tbody,
+            tfoot, tr, th, td, colspan, border,
+            gambar poster, dan pilihan film.
+
+        </p>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PAKET BERLANGGANAN -->
+    <!-- ========================= -->
 
     <section id="paket">
 
@@ -954,6 +1273,7 @@
 
         <div class="paket-container">
 
+
             <!-- BASIC -->
 
             <div class="paket-card">
@@ -971,9 +1291,6 @@
                     </span>
 
                 </div>
-
-
-                <!-- ORDERED LIST -->
 
                 <ol>
 
@@ -995,7 +1312,6 @@
 
                 </ol>
 
-
                 <a
                     href="#kontak"
                     class="paket-btn"
@@ -1006,10 +1322,7 @@
             </div>
 
 
-
-            <!-- ================= -->
             <!-- PREMIUM -->
-            <!-- ================= -->
 
             <div class="paket-card premium">
 
@@ -1017,11 +1330,9 @@
                     PALING POPULER
                 </div>
 
-
                 <h3>
                     Premium
                 </h3>
-
 
                 <div class="harga">
 
@@ -1032,9 +1343,6 @@
                     </span>
 
                 </div>
-
-
-                <!-- ORDERED LIST -->
 
                 <ol>
 
@@ -1060,7 +1368,6 @@
 
                 </ol>
 
-
                 <a
                     href="#kontak"
                     class="paket-btn"
@@ -1071,17 +1378,13 @@
             </div>
 
 
-
-            <!-- ================= -->
             <!-- VIP -->
-            <!-- ================= -->
 
             <div class="paket-card">
 
                 <h3>
                     VIP
                 </h3>
-
 
                 <div class="harga">
 
@@ -1092,9 +1395,6 @@
                     </span>
 
                 </div>
-
-
-                <!-- ORDERED LIST -->
 
                 <ol>
 
@@ -1124,7 +1424,6 @@
 
                 </ol>
 
-
                 <a
                     href="#kontak"
                     class="paket-btn"
@@ -1134,11 +1433,9 @@
 
             </div>
 
-
         </div>
 
     </section>
-
 
 
     <!-- ========================= -->
@@ -1162,7 +1459,6 @@
 
         <div class="about-container">
 
-
             <div class="about-image">
 
                 <img
@@ -1184,8 +1480,7 @@
                     MovieSpace merupakan website
                     sederhana yang dibuat untuk
                     menyediakan informasi dan
-                    koleksi film bagi para pecinta
-                    film.
+                    koleksi film bagi para pecinta film.
                 </p>
 
                 <p>
@@ -1207,7 +1502,6 @@
         </div>
 
     </section>
-
 
 
     <!-- ========================= -->
@@ -1263,7 +1557,7 @@
 
             <img
                 src="img/waktu-magrib.webp"
-                alt="waktu-magrib"
+                alt="Waktu Magrib"
             >
 
             <img
@@ -1274,7 +1568,6 @@
         </div>
 
     </section>
-
 
 
     <!-- ========================= -->
@@ -1349,7 +1642,6 @@
     </section>
 
 
-
     <!-- ========================= -->
     <!-- FOOTER -->
     <!-- ========================= -->
@@ -1371,25 +1663,250 @@
     </footer>
 
 
-
     <!-- ========================= -->
     <!-- JAVASCRIPT -->
     <!-- ========================= -->
 
     <script>
 
+        function ubahRekomendasi() {
+
+            const pilihan =
+                document.getElementById("filmPilihan").value;
+
+            const tabel =
+                document.getElementById("tabelRekomendasi");
+
+
+            const data = {
+
+                avengers: [
+
+                    [
+                        "1",
+                        "img/spiderman.jpg",
+                        "Spider-Man",
+                        "Action, Superhero",
+                        "8.2/10",
+                        "2019"
+                    ],
+
+                    [
+                        "2",
+                        "img/harry-potter.jpg",
+                        "Harry Potter",
+                        "Fantasy, Adventure",
+                        "7.6/10",
+                        "2001"
+                    ],
+
+                    [
+                        "3",
+                        "img/lion-king.jpg",
+                        "The Lion King",
+                        "Animation, Adventure",
+                        "8.5/10",
+                        "2019"
+                    ]
+
+                ],
+
+
+                titanic: [
+
+                    [
+                        "1",
+                        "img/lion-king.jpg",
+                        "The Lion King",
+                        "Animation, Drama",
+                        "8.5/10",
+                        "2019"
+                    ],
+
+                    [
+                        "2",
+                        "img/harry-potter.jpg",
+                        "Harry Potter",
+                        "Fantasy, Drama",
+                        "7.6/10",
+                        "2001"
+                    ],
+
+                    [
+                        "3",
+                        "img/spiderman.jpg",
+                        "Spider-Man",
+                        "Action, Drama",
+                        "8.2/10",
+                        "2019"
+                    ]
+
+                ],
+
+
+                "harry-potter": [
+
+                    [
+                        "1",
+                        "img/lion-king.jpg",
+                        "The Lion King",
+                        "Fantasy, Adventure",
+                        "8.5/10",
+                        "2019"
+                    ],
+
+                    [
+                        "2",
+                        "img/spiderman.jpg",
+                        "Spider-Man",
+                        "Action, Fantasy",
+                        "8.2/10",
+                        "2019"
+                    ],
+
+                    [
+                        "3",
+                        "img/avengers.jpg",
+                        "Avengers: Endgame",
+                        "Action, Fantasy",
+                        "8.4/10",
+                        "2019"
+                    ]
+
+                ],
+
+
+                "lion-king": [
+
+                    [
+                        "1",
+                        "img/harry-potter.jpg",
+                        "Harry Potter",
+                        "Fantasy, Adventure",
+                        "7.6/10",
+                        "2001"
+                    ],
+
+                    [
+                        "2",
+                        "img/spiderman.jpg",
+                        "Spider-Man",
+                        "Adventure, Action",
+                        "8.2/10",
+                        "2019"
+                    ],
+
+                    [
+                        "3",
+                        "img/avengers.jpg",
+                        "Avengers: Endgame",
+                        "Action, Adventure",
+                        "8.4/10",
+                        "2019"
+                    ]
+
+                ],
+
+
+                spiderman: [
+
+                    [
+                        "1",
+                        "img/avengers.jpg",
+                        "Avengers: Endgame",
+                        "Action, Superhero",
+                        "8.4/10",
+                        "2019"
+                    ],
+
+                    [
+                        "2",
+                        "img/harry-potter.jpg",
+                        "Harry Potter",
+                        "Fantasy, Adventure",
+                        "7.6/10",
+                        "2001"
+                    ],
+
+                    [
+                        "3",
+                        "img/lion-king.jpg",
+                        "The Lion King",
+                        "Adventure, Animation",
+                        "8.5/10",
+                        "2019"
+                    ]
+
+                ]
+
+            };
+
+
+            tabel.innerHTML = "";
+
+
+            data[pilihan].forEach(function(film, index) {
+
+                const baris =
+                    document.createElement("tr");
+
+
+                baris.innerHTML = `
+
+                    <td>
+                        ${index + 1}
+                    </td>
+
+                    <td>
+
+                        <img
+                            src="${film[1]}"
+                            alt="${film[2]}"
+                        >
+
+                    </td>
+
+                    <td>
+                        ${film[2]}
+                    </td>
+
+                    <td>
+                        ${film[3]}
+                    </td>
+
+                    <td class="rating">
+                        ${film[4]}
+                    </td>
+
+                    <td>
+                        ${film[5]}
+                    </td>
+
+                `;
+
+
+                tabel.appendChild(baris);
+
+            });
+
+        }
+
+
         function kirimPesan(event) {
 
             event.preventDefault();
 
+
             const nama =
                 document.getElementById("nama").value;
+
 
             alert(
                 "Terima kasih " +
                 nama +
                 "! Pesan kamu berhasil dikirim."
             );
+
 
             document
                 .querySelector(".contact-form")
@@ -1398,7 +1915,6 @@
         }
 
     </script>
-
 
 </body>
 </html>
